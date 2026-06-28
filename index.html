@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UNI // Systems Architect</title>
     
+    <!-- Stop Favicon 404 -->
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -40,23 +43,22 @@
         .bento-card {
             background: #0A0A0A;
             border: 1px solid #1A1A1A;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             overflow: hidden;
         }
 
         .bento-card:hover {
-            border-color: #333;
+            border-color: #444;
+            transform: translateY(-2px);
         }
 
-        .gif-container img {
-            filter: grayscale(100%) contrast(110%);
+        .showcase-img {
+            filter: grayscale(100%) brightness(0.7);
             transition: all 0.5s ease;
-            opacity: 0.7;
         }
 
-        .bento-card:hover img {
-            filter: grayscale(0%) contrast(100%);
-            opacity: 1;
+        .bento-card:hover .showcase-img {
+            filter: grayscale(0%) brightness(1);
             transform: scale(1.05);
         }
 
@@ -66,171 +68,170 @@
             border-color: white !important;
         }
 
+        /* Built-in Noise Filter (No 404s) */
         .grain-overlay {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
             pointer-events: none;
             z-index: 99;
-            opacity: 0.03;
-            background-image: url('https://grainy-gradients.vercel.app/noise.svg');
+            opacity: 0.15;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
         }
 
-        ::selection {
-            background: white;
-            color: black;
-        }
+        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar-track { background: #050505; }
+        ::-webkit-scrollbar-thumb { background: #1A1A1A; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #333; }
+
+        ::selection { background: white; color: black; }
     </style>
 </head>
 <body class="font-sans antialiased">
     <div class="grain-overlay"></div>
 
-    <!-- Minimal Nav -->
     <nav class="fixed top-0 w-full z-50 bg-[#050505]/80 backdrop-blur-sm border-b border-white/5">
         <div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
             <div class="flex items-center gap-4">
-                <span class="font-mono text-white font-bold tracking-tighter text-lg">UNI.SYS</span>
+                <span class="font-mono text-white font-bold tracking-tighter text-lg uppercase">Uni.Systems</span>
                 <span class="h-4 w-[1px] bg-white/10"></span>
                 <div class="flex items-center gap-2">
-                    <div class="w-1.5 h-1.5 bg-green-500 rounded-full"></div>
-                    <span class="text-[10px] font-mono uppercase tracking-[0.2em] text-muted">Available</span>
+                    <div class="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></div>
+                    <span class="text-[10px] font-mono uppercase tracking-[0.2em] text-muted">Online</span>
                 </div>
             </div>
             <div class="hidden md:flex gap-8 text-[11px] font-mono uppercase tracking-widest">
-                <a href="#showcase" class="hover:text-white transition-colors">Demos</a>
+                <a href="#showcase" class="hover:text-white transition-colors">Showcase</a>
                 <a href="#services" class="hover:text-white transition-colors">Services</a>
-                <a href="#pricing" class="hover:text-white transition-colors">Pricing</a>
+                <a href="#pricing" class="hover:text-white transition-colors">Tiers</a>
             </div>
         </div>
     </nav>
 
     <main class="max-w-5xl mx-auto px-6 pt-32 pb-24">
         
-        <!-- Hero -->
         <header class="mb-24">
             <div class="inline-block px-3 py-1 border border-white/10 rounded-full mb-6">
-                <span class="text-[10px] font-mono uppercase tracking-widest text-accent">Luau Technical Lead</span>
+                <span class="text-[10px] font-mono uppercase tracking-widest text-accent">Luau Technical Architect</span>
             </div>
             <h1 class="text-6xl md:text-8xl font-bold text-white tracking-tight mb-8 leading-[0.9]">
-                Engineered <br/> <span class="text-muted">Simplicity.</span>
+                Advanced <br/> <span class="text-muted">Luau Scripting.</span>
             </h1>
             <p class="text-xl text-muted max-w-xl leading-relaxed font-light">
-                Creating high-performance Roblox systems with a focus on modularity and security. 3+ years of technical excellence in backend architecture.
+                Building high-performance, secure, and scalable Roblox systems. Specializing in game frameworks, custom physics, and robust backends.
             </p>
         </header>
 
-        <!-- GIF Showcase Section -->
+        <!-- Showcase Section -->
         <section id="showcase" class="mb-32">
-            <h2 class="text-xs font-mono uppercase tracking-widest text-white/30 mb-8 italic">// System_Demos</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <h2 class="text-xs font-mono uppercase tracking-widest text-white/30 mb-8 italic">// Selected_Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 
-                <!-- GIF Item 1 -->
+                <!-- Project 1 -->
                 <div class="bento-card group aspect-video relative flex items-end">
-                    <img src="https://raw.githubusercontent.com/UnisScriptingPortfolio/main/gifs/demo1.gif" alt="Demo" class="absolute inset-0 w-full h-full object-cover">
-                    <div class="relative p-4 w-full bg-gradient-to-t from-black/80 to-transparent">
-                        <span class="text-[10px] font-mono text-white/50 uppercase tracking-widest">Anti-Exploit FPS System</span>
+                    <!-- Update filename if 'fps system.gif' is different in your folder -->
+                    <img src="https://raw.githubusercontent.com/UniTheVerse/UnisScriptingPortfolio/main/gifs/demo2.gif" alt="FPS System" class="showcase-img absolute inset-0 w-full h-full object-cover">
+                    <div class="relative p-6 w-full bg-gradient-to-t from-black via-black/40 to-transparent">
+                        <h4 class="text-white font-bold mb-1">Combat Framework</h4>
+                        <p class="text-[10px] font-mono text-white/50 uppercase tracking-widest">Anti-Exploit / Viewmodels / Prediction</p>
                     </div>
                 </div>
 
-                <!-- GIF Item 2 -->
+                <!-- Project 2 -->
                 <div class="bento-card group aspect-video relative flex items-end">
-                    <img src="https://raw.githubusercontent.com/UnisScriptingPortfolio/main/gifs/demo2.gif" alt="Demo" class="absolute inset-0 w-full h-full object-cover">
-                    <div class="relative p-4 w-full bg-gradient-to-t from-black/80 to-transparent">
-                        <span class="text-[10px] font-mono text-white/50 uppercase tracking-widest">AI Pathfinding, Physics-based drag system, modular planting and cultivation loop</span>
+                    <!-- Update filename if 'farming system.gif' is different in your folder -->
+                    <img src="https://raw.githubusercontent.com/UniTheVerse/UnisScriptingPortfolio/main/gifs/demo1.gif" alt="Farming System" class="showcase-img absolute inset-0 w-full h-full object-cover">
+                    <div class="relative p-6 w-full bg-gradient-to-t from-black via-black/40 to-transparent">
+                        <h4 class="text-white font-bold mb-1">Interaction Loop</h4>
+                        <p class="text-[10px] font-mono text-white/50 uppercase tracking-widest">AI Pathfinding / Modular Planting / Cultivation</p>
                     </div>
                 </div>
-                
 
             </div>
         </section>
 
-        <!-- Services Grid -->
+        <!-- Services -->
         <section id="services" class="mb-32">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-px bg-white/5 border border-white/5 overflow-hidden rounded-2xl">
                 <div class="p-8 bg-surface">
                     <i data-lucide="layers" class="w-5 h-5 text-white mb-6"></i>
-                    <h3 class="text-white font-medium mb-2">Architecture</h3>
-                    <p class="text-sm leading-relaxed">Scalable frameworks and modular game loops built for long-term production.</p>
+                    <h3 class="text-white font-medium mb-2">Systems</h3>
+                    <p class="text-sm leading-relaxed">Full-game frameworks and modular loops built for scalability and performance.</p>
                 </div>
                 <div class="p-8 bg-surface">
                     <i data-lucide="shield-check" class="w-5 h-5 text-white mb-6"></i>
                     <h3 class="text-white font-medium mb-2">Security</h3>
-                    <p class="text-sm leading-relaxed">Hardened remote security and server-authoritative logic to prevent exploits.</p>
+                    <p class="text-sm leading-relaxed">Server-authoritative logic and hardened remotes to minimize exploit impact.</p>
                 </div>
                 <div class="p-8 bg-surface">
-                    <i data-lucide="zap" class="w-5 h-5 text-white mb-6"></i>
+                    <i data-lucide="cpu" class="w-5 h-5 text-white mb-6"></i>
                     <h3 class="text-white font-medium mb-2">Optimization</h3>
-                    <p class="text-sm leading-relaxed">Thread-safe, event-driven systems designed for 60fps performance on all devices.</p>
+                    <p class="text-sm leading-relaxed">Memory-efficient code and clean replication logic for a smooth experience.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Pricing Interactive -->
+        <!-- Pricing -->
         <section id="pricing" class="mb-32">
-            <h2 class="text-xs font-mono uppercase tracking-widest text-white/30 mb-8 text-center italic">// Service Tiers</h2>
-            
+            <h2 class="text-xs font-mono uppercase tracking-widest text-white/30 mb-8 text-center italic">// Pricing_Index</h2>
             <div class="max-w-2xl mx-auto">
                 <div class="flex p-1 bg-surface border border-white/5 rounded-full mb-12">
-                    <button onclick="setTier('small')" id="t-small" class="tier-btn flex-1 py-3 text-[10px] font-mono uppercase tracking-widest rounded-full transition-all">Task</button>
-                    <button onclick="setTier('medium')" id="t-medium" class="tier-btn flex-1 py-3 text-[10px] font-mono uppercase tracking-widest rounded-full transition-all">Module</button>
-                    <button onclick="setTier('large')" id="t-large" class="tier-btn flex-1 py-3 text-[10px] font-mono uppercase tracking-widest rounded-full transition-all">System</button>
+                    <button onclick="setTier('small')" id="t-small" class="tier-btn flex-1 py-3 text-[10px] font-mono uppercase tracking-widest rounded-full transition-all">Small</button>
+                    <button onclick="setTier('medium')" id="t-medium" class="tier-btn flex-1 py-3 text-[10px] font-mono uppercase tracking-widest rounded-full transition-all">Medium</button>
+                    <button onclick="setTier('large')" id="t-large" class="tier-btn flex-1 py-3 text-[10px] font-mono uppercase tracking-widest rounded-full transition-all">Large</button>
                 </div>
-
                 <div id="pricing-display" class="text-center min-h-[160px] flex flex-col justify-center">
-                    <p class="text-muted font-mono text-sm uppercase tracking-widest">Select a tier to view estimates</p>
+                    <p class="text-muted font-mono text-sm uppercase tracking-widest">Initialize pricing module...</p>
                 </div>
             </div>
         </section>
 
-        <!-- Contact (Direct Link Version) -->
+        <!-- Contact -->
         <section class="border-t border-white/5 pt-24 text-center">
-            <h2 class="text-4xl font-bold text-white tracking-tight mb-12">Initialize Project</h2>
+            <h2 class="text-4xl font-bold text-white tracking-tight mb-12 uppercase">Begin Collaboration</h2>
             <div class="flex flex-col items-center gap-6">
-                <!-- Direct Discord Link -->
                 <a href="https://discord.com/users/656280455028408328" target="_blank" class="px-12 py-5 bg-white text-black font-bold rounded-full hover:bg-zinc-200 transition-all flex items-center gap-3 active:scale-95">
-                    <i data-lucide="external-link" class="w-4 h-4"></i>
-                    <span>OPEN DISCORD PROFILE</span>
+                    <i data-lucide="message-square" class="w-4 h-4"></i>
+                    <span>VISIT DISCORD PROFILE</span>
                 </a>
-                <p class="font-mono text-[10px] text-muted tracking-[0.3em]">USER_ID: 656280455028408328</p>
+                <p class="font-mono text-[10px] text-muted tracking-[0.3em]">RECV_UID: 656280455028408328</p>
             </div>
         </section>
 
     </main>
 
     <footer class="max-w-5xl mx-auto px-6 pb-12 flex justify-between items-center opacity-30 font-mono text-[10px] tracking-widest">
-        <span>UNI_V2.5.0</span>
-        <span>© 2024 ALL RIGHTS RESERVED</span>
+        <span>UNI_LOG_V2.0</span>
+        <span>© 2024 SYSTEM_ARCHITECT</span>
     </footer>
 
     <script>
         lucide.createIcons();
 
         const tiers = {
-            small: { price: "$20+", time: "24-48 Hours", items: ["Bug Fixes", "UI Scripting", "Simple Tools"] },
-            medium: { price: "$80+", time: "3-5 Days", items: ["Data Stores", "NPC AI", "Ability Systems"] },
-            large: { price: "QUOTE", time: "1-3 Weeks", items: ["Round Frameworks", "Full Backends", "Custom Engines"] }
+            small: { price: "$20+", time: "24-48 Hours", items: ["Small Bug Fixes", "Stand-alone UI", "Tool Scripts"] },
+            medium: { price: "$100+", time: "3-7 Days", items: ["Custom Systems", "Data Stores", "Entity AI"] },
+            large: { price: "QUOTE", time: "1-4 Weeks", items: ["Full Game Architecture", "Backends", "Physics Engines"] }
         };
 
         function setTier(key) {
             const data = tiers[key];
             const display = document.getElementById('pricing-display');
-            
             document.querySelectorAll('.tier-btn').forEach(b => b.classList.remove('pricing-active'));
             document.getElementById(`t-${key}`).classList.add('pricing-active');
 
-            display.style.opacity = 0;
-            setTimeout(() => {
-                display.innerHTML = `
-                    <div class="animate-in fade-in slide-in-from-bottom-4 duration-500">
-                        <div class="text-6xl font-bold text-white mb-2 tracking-tighter">${data.price}</div>
-                        <div class="text-accent font-mono text-[10px] uppercase tracking-widest mb-6">EST. TURNAROUND: ${data.time}</div>
-                        <div class="flex flex-wrap justify-center gap-4">
-                            ${data.items.map(i => `<span class="text-xs border border-white/10 px-3 py-1 rounded-full text-muted">${i}</span>`).join('')}
-                        </div>
+            display.innerHTML = `
+                <div class="animate-in fade-in slide-in-from-bottom-4 duration-500">
+                    <div class="text-6xl font-bold text-white mb-2 tracking-tighter">${data.price}</div>
+                    <div class="text-accent font-mono text-[10px] uppercase tracking-widest mb-6">TURNAROUND: ${data.time}</div>
+                    <div class="flex flex-wrap justify-center gap-3">
+                        ${data.items.map(i => `<span class="text-[10px] border border-white/10 px-3 py-1 rounded-full text-muted uppercase font-mono">${i}</span>`).join('')}
                     </div>
-                `;
-                display.style.opacity = 1;
-            }, 150);
+                </div>
+            `;
         }
+
+        // Initialize with first tier
+        setTier('small');
     </script>
 </body>
 </html>
