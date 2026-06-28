@@ -33,12 +33,10 @@
     </script>
 
     <style>
+        /* Perfectly clean dark background */
         body {
             background-color: #050505;
             color: #A1A1AA;
-            /* Simple CSS pattern instead of external assets */
-            background-image: radial-gradient(#1A1A1A 1px, transparent 1px);
-            background-size: 32px 32px;
         }
 
         .bento-card {
@@ -52,13 +50,12 @@
         .bento-card:hover {
             border-color: #3B82F6;
             transform: translateY(-4px);
-            box-shadow: 0 10px 30px -10px rgba(59, 130, 246, 0.2);
+            box-shadow: 0 20px 40px -20px rgba(59, 130, 246, 0.3);
         }
 
-        /* Gray to Color transition on hover */
         .showcase-img {
             filter: grayscale(100%) brightness(0.6);
-            transition: all 0.5s ease;
+            transition: all 0.6s ease;
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -75,28 +72,18 @@
             border-color: white !important;
         }
 
-        /* Pure CSS Grain - No external SVG needed */
-        .grain-overlay {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            pointer-events: none;
-            z-index: 99;
-            opacity: 0.05;
-            background: url('https://grainy-gradients.vercel.app/noise.svg'); /* Fallback */
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-        }
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: #050505; }
+        ::-webkit-scrollbar-thumb { background: #1A1A1A; border-radius: 10px; }
 
         ::selection { background: white; color: black; }
-        
-        /* Smooth scrolling for navigation */
         html { scroll-behavior: smooth; }
     </style>
 </head>
 <body class="font-sans antialiased">
-    <div class="grain-overlay"></div>
 
     <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-50 bg-[#050505]/80 backdrop-blur-md border-b border-white/5">
+    <nav class="fixed top-0 w-full z-50 bg-[#050505]/90 backdrop-blur-md border-b border-white/5">
         <div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
             <div class="flex items-center gap-4">
                 <span class="font-mono text-white font-bold tracking-tighter text-lg uppercase">Uni.Systems</span>
@@ -125,7 +112,7 @@
                 Engineered <br/> <span class="text-muted">Stability.</span>
             </h1>
             <p class="text-xl text-muted max-w-xl leading-relaxed font-light">
-                Specializing in high-performance Luau development. I build modular frameworks, secure backends, and complex game mechanics.
+                High-performance Luau development for the next generation of Roblox titles. Modular architecture, optimized physics, and secure networking.
             </p>
         </header>
 
@@ -138,30 +125,29 @@
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 
-                <!-- Demo 1: Farming (Updated Labels & Direct GitHub Link) -->
+                <!-- Demo 1: Farming -->
                 <div class="bento-card group aspect-video rounded-xl">
                     <img src="https://github.com/UniTheVerse/UnisScriptingPortfolio/blob/main/gifs/demo1.gif?raw=true" 
                          alt="Farming System" 
                          class="showcase-img">
-                    <div class="absolute bottom-0 left-0 p-6 w-full bg-gradient-to-t from-black via-black/60 to-transparent">
+                    <div class="absolute bottom-0 left-0 p-6 w-full bg-gradient-to-t from-black via-black/80 to-transparent">
                         <h4 class="text-white font-bold mb-1">Interaction & AI</h4>
                         <p class="text-[10px] font-mono text-white/50 uppercase tracking-widest">Farming System / Pathfinding / Dynamic Loops</p>
                     </div>
                 </div>
 
-                <!-- Demo 2: FPS (Updated Labels & Direct GitHub Link) -->
+                <!-- Demo 2: FPS -->
                 <div class="bento-card group aspect-video rounded-xl">
                     <img src="https://github.com/UniTheVerse/UnisScriptingPortfolio/blob/main/gifs/demo2.gif?raw=true" 
                          alt="FPS System" 
                          class="showcase-img">
-                    <div class="absolute bottom-0 left-0 p-6 w-full bg-gradient-to-t from-black via-black/60 to-transparent">
+                    <div class="absolute bottom-0 left-0 p-6 w-full bg-gradient-to-t from-black via-black/80 to-transparent">
                         <h4 class="text-white font-bold mb-1">Combat & Physics</h4>
                         <p class="text-[10px] font-mono text-white/50 uppercase tracking-widest">FPS Framework / Projectiles / Viewmodels</p>
                     </div>
                 </div>
 
             </div>
-            <p class="mt-4 text-[10px] font-mono text-muted text-center italic">Note: If images aren't loading, ensure your GitHub repository is set to "Public".</p>
         </section>
 
         <!-- Expertise Info -->
@@ -170,17 +156,17 @@
                 <div class="p-8 bg-surface">
                     <i data-lucide="layers" class="w-5 h-5 text-white mb-6"></i>
                     <h3 class="text-white font-medium mb-2">Backends</h3>
-                    <p class="text-sm leading-relaxed text-muted">Secure data management and robust server-side architecture for seamless play.</p>
+                    <p class="text-sm leading-relaxed text-muted">Scalable data management and robust server-side logic built for zero downtime.</p>
                 </div>
                 <div class="p-8 bg-surface">
-                    <i data-lucide="shield" class="w-5 h-5 text-white mb-6"></i>
-                    <h3 class="text-white font-medium mb-2">Hardening</h3>
-                    <p class="text-sm leading-relaxed text-muted">Built from the ground up to resist common exploit vectors and remote manipulation.</p>
+                    <i data-lucide="shield-check" class="w-5 h-5 text-white mb-6"></i>
+                    <h3 class="text-white font-medium mb-2">Security</h3>
+                    <p class="text-sm leading-relaxed text-muted">Authoritative systems and remote hardening designed to mitigate exploits.</p>
                 </div>
                 <div class="p-8 bg-surface">
                     <i data-lucide="zap" class="w-5 h-5 text-white mb-6"></i>
                     <h3 class="text-white font-medium mb-2">Performance</h3>
-                    <p class="text-sm leading-relaxed text-muted">Efficient event handling and thread-safety to maintain 60FPS across all devices.</p>
+                    <p class="text-sm leading-relaxed text-muted">Efficient Luau code that prioritizes thread safety and memory management.</p>
                 </div>
             </div>
         </section>
@@ -195,7 +181,6 @@
                     <button onclick="setTier('large')" id="t-large" class="tier-btn flex-1 py-3 text-[10px] font-mono uppercase tracking-widest rounded-full transition-all">Large</button>
                 </div>
                 <div id="pricing-display" class="text-center min-h-[160px] flex flex-col justify-center">
-                    <!-- Javascript will inject content here -->
                 </div>
             </div>
         </section>
@@ -205,7 +190,7 @@
             <h2 class="text-4xl font-bold text-white tracking-tight mb-12 uppercase">Initialize Project</h2>
             <div class="flex flex-col items-center gap-6">
                 <a href="https://discord.com/users/656280455028408328" target="_blank" class="px-12 py-5 bg-white text-black font-bold rounded-full hover:bg-accent hover:text-white transition-all flex items-center gap-3 active:scale-95">
-                    <i data-lucide="external-link" class="w-4 h-4"></i>
+                    <i data-lucide="message-square" class="w-4 h-4"></i>
                     <span>VIEW DISCORD PROFILE</span>
                 </a>
                 <p class="font-mono text-[10px] text-muted tracking-[0.3em]">IDENT_ID: 656280455028408328</p>
@@ -215,30 +200,26 @@
     </main>
 
     <footer class="max-w-5xl mx-auto px-6 pb-12 flex justify-between items-center opacity-30 font-mono text-[10px] tracking-widest">
-        <span>UNI_SYS_V3.0.1</span>
-        <span>© 2024 ARCHITECT</span>
+        <span>UNI_ARCH_V3.1.0</span>
+        <span>© 2024 ALL RIGHTS RESERVED</span>
     </footer>
 
     <script>
-        // Initialize Lucide Icons
         lucide.createIcons();
 
-        // Pricing Configuration
         const tiers = {
-            small: { price: "$25+", time: "24-48 Hours", items: ["Code Audits", "Bug Squashing", "Isolated Logic"] },
-            medium: { price: "$120+", time: "3-6 Days", items: ["Complex Modules", "NPC AI", "Data Architecture"] },
-            large: { price: "QUOTE", time: "1-4 Weeks", items: ["Full Frameworks", "Backend Systems", "Physics Engines"] }
+            small: { price: "$15+", time: "24-48 Hours", items: ["Code Optimization", "Single Bug Fixes", "Isolated Logic"] },
+            medium: { price: "$60+", time: "3-6 Days", items: ["NPC AI Systems", "Combat Modules", "Data Architecture"] },
+            large: { price: "QUOTE", time: "1-4 Weeks", items: ["Full Frameworks", "Production Backends", "Custom Physics"] }
         };
 
         function setTier(key) {
             const data = tiers[key];
             const display = document.getElementById('pricing-display');
             
-            // Toggle active styles on buttons
             document.querySelectorAll('.tier-btn').forEach(b => b.classList.remove('pricing-active'));
             document.getElementById(`t-${key}`).classList.add('pricing-active');
 
-            // Inject the content with a simple animation
             display.innerHTML = `
                 <div class="animate-in fade-in slide-in-from-bottom-2 duration-300">
                     <div class="text-7xl font-bold text-white mb-2 tracking-tighter">${data.price}</div>
@@ -250,7 +231,6 @@
             `;
         }
 
-        // Initialize default tier display
         setTier('medium');
     </script>
 </body>
